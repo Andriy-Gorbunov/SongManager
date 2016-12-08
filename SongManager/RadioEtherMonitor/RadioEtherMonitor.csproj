@@ -143,6 +143,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RadioEtherInternetAPI\RadioEtherInternetAPI.csproj">
+      <Project>{cd9e5c9f-1759-4bc6-a52f-cca7f1aa6516}</Project>
+      <Name>RadioEtherInternetAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
