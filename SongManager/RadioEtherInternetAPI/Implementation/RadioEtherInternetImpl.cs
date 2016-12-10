@@ -43,9 +43,9 @@ namespace RadioEtherInternetAPI.Implementation
                     case AggregatorType.RadioIUa:
                         result.AddRange(GetAllRadioIUAUkr());
                         break;
-                    case AggregatorType.RadioscopeInUa:
+                    //case AggregatorType.RadioscopeInUa:
                         // not supported yet
-                        break;
+                      //  break;
                     default:
                         // not added to this switch. maybe a throw?
                         break;

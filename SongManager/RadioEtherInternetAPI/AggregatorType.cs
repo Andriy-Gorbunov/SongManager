@@ -10,14 +10,8 @@ namespace RadioEtherInternetAPI
 {
     public enum AggregatorType
     {
-        [Description("Радіоскоп")]
-        //[Url("http://radioscope.in.ua/")]
+        RadioIUa //,
+        //RadioscopeInUa
 
-        RadioscopeInUa,
-
-        [Description("Радіо на i.ua")]
-        //[Url("http://radio.i.ua/")]
-
-        RadioIUa
     }
 }

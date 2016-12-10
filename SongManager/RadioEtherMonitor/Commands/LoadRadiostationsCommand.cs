@@ -1,6 +1,7 @@
 ﻿using RadioEtherInternetAPI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,15 @@ namespace RadioEtherMonitor.Commands
 
         private readonly HashSet<string> strings = new HashSet<string>();
         private readonly HashSet<AggregatorType> aggregators = new HashSet<AggregatorType>();
+        private readonly IRadiostationsData data;
 
-        public LoadRadiostationsCommand()
+        public LoadRadiostationsCommand(IRadiostationsData data)
         {
             foreach (var agg in Enum.GetValues(typeof(AggregatorType)))
             {
                 strings.Add(agg.ToString());
                 aggregators.Add((AggregatorType)agg);
+                this.data = data;
             }
         }
 
@@ -49,8 +52,9 @@ namespace RadioEtherMonitor.Commands
             {
                 return;
             }
-            var radiostations = RadioEtherInternetAPI.APIFactory.GetAPI().LoadRadiostations(typesToLoad);
-            MessageBox.Show(string.Concat(radiostations.Select(r => r.Name + ", ")));
+            data.Radiostations = new ObservableCollection<Radiostation>(RadioEtherInternetAPI.APIFactory.GetAPI().LoadRadiostations(typesToLoad));
+
+            //MessageBox.Show(string.Concat(radiostations.Select(r => r.Name + ", ")));
         }
     }
 

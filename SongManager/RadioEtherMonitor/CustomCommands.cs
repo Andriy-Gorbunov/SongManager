@@ -10,6 +10,6 @@ namespace RadioEtherMonitor
 {
     public static class CustomCommands
     {
-        public static readonly ICommand LoadRadiostationsList = new LoadRadiostationsCommand();
+
     }
 }
