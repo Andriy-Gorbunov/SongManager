@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RadioEtherMonitor"
         mc:Ignorable="d"
-        Title="Контролер квот радіоефіру v1.0 build 1" Height="350" Width="525">
+        Title="{Binding Path=Version, StringFormat=Контролер квот радіоефіру.           Версія \{0\}}" Height="350" Width="525">
     <Window.DataContext>
         <local:MainWindowVM />
     </Window.DataContext>

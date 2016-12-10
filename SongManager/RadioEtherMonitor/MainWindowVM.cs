@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -35,10 +36,13 @@ namespace RadioEtherMonitor
 
         public Radiostation SelectedRadiostation { get; set; }
 
+        public string Version { get; private set; }
+
         public MainWindowVM()
         {
             LoadRadiostationsList = new LoadRadiostationsCommand(this);
             SelectedRadiostation = new Radiostation();
+            Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
     }
 }

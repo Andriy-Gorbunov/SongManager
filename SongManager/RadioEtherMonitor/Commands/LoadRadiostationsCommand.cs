@@ -53,8 +53,6 @@ namespace RadioEtherMonitor.Commands
                 return;
             }
             data.Radiostations = new ObservableCollection<Radiostation>(RadioEtherInternetAPI.APIFactory.GetAPI().LoadRadiostations(typesToLoad));
-
-            //MessageBox.Show(string.Concat(radiostations.Select(r => r.Name + ", ")));
         }
     }
 
