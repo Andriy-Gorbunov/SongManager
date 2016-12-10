@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="517">
+            <MenuItem Header="За_вантажити/оновити список радіостанцій з..." >
+                <MenuItem Header="radio.i.ua" HorizontalAlignment="Left" Command="{x:Static local:CustomCommands.LoadRadiostationsList}" CommandParameter="RadioIUa" />
+                <MenuItem Header="radioscope.in.ua" HorizontalAlignment="Left" Command="{x:Static local:CustomCommands.LoadRadiostationsList}" CommandParameter="RadioscopeInUa" />
+                <Separator HorizontalAlignment="Left" />
+                <MenuItem Header="_усіх перелічених агрегаторів" HorizontalAlignment="Left" Command="{x:Static local:CustomCommands.LoadRadiostationsList}" CommandParameter=""/>
+            </MenuItem>
+        </Menu>
+
     </Grid>
 </Window>

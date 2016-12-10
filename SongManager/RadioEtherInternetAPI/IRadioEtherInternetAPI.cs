@@ -14,8 +14,8 @@ namespace RadioEtherInternetAPI
 
         List<string> FindDuration(string song);
 
-        List<Radiostation> LoadRadiostations();
+        List<Radiostation> LoadRadiostations(HashSet<AggregatorType> radiostationTypes);
 
-        List<string> LoadSongs(Aggregator site, Uri Archive);
+        List<string> LoadSongs(AggregatorType site, Uri Archive);
     }
 }

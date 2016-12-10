@@ -9,7 +9,7 @@ namespace RadioEtherInternetAPI
     public class Radiostation
     {
         public string Name { get; set; }
-        public Aggregator Site { get; set; }
+        public AggregatorType Site { get; set; }
         public Uri Archive { get; set; }
     }
 }

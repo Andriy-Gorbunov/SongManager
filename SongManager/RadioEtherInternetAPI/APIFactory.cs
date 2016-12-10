@@ -11,7 +11,7 @@ namespace RadioEtherInternetAPI
     {
         public static IRadioEtherInternetAPI GetAPI()
         {
-            return new RadioEtherInternetImpl();
+            return new RadioEtherInternetImpl(new WebClientProxyImpl());
         }
     }
 }
