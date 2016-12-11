@@ -42,12 +42,12 @@ namespace RadioEtherMonitor
             
             Connection.Open();
 
-            var script = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("RadioEtherMonitor.Model.edmx.sql")).ReadToEnd();
-            foreach (var cmd in script.Split(new[] { "\r\nGO\r\n" }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                var cmdd = new SqlCeCommand(cmd, Connection);
-                cmdd.ExecuteNonQuery();
-            }
+            //var script = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("RadioEtherMonitor.Model.edmx.sql")).ReadToEnd();
+            //foreach (var cmd in script.Split(new[] { "\r\nGO\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+            //{
+            //    var cmdd = new SqlCeCommand(cmd, Connection);
+            //    cmdd.ExecuteNonQuery();
+            //}
         }
 
         protected override void OnExit(ExitEventArgs e)
