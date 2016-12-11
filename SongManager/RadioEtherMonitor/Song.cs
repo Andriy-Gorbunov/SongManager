@@ -22,7 +22,7 @@ namespace RadioEtherMonitor
     
         public System.Guid Id { get; set; }
         public string Title { get; set; }
-        public System.DateTimeOffset Duration { get; set; }
+        public double Duration { get; set; }
         public Nullable<System.Guid> PerformerId { get; set; }
         public Nullable<System.Guid> PerformerId1 { get; set; }
         public Nullable<System.Guid> LanguageId { get; set; }

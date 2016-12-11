@@ -20,7 +20,7 @@ namespace RadioEtherMonitor
     {
         public SqlCeConnection Connection { get; private set; }
 
-        public const string SqlFileName = "songs.mdf";
+        public const string SqlFileName = "songs.sdf";
 
         public new static App Current { get; private set; }
 
@@ -42,12 +42,19 @@ namespace RadioEtherMonitor
             
             Connection.Open();
 
-            //var script = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("RadioEtherMonitor.Model.edmx.sql")).ReadToEnd();
-            //foreach (var cmd in script.Split(new[] { "\r\nGO\r\n" }, StringSplitOptions.RemoveEmptyEntries))
-            //{
-            //    var cmdd = new SqlCeCommand(cmd, Connection);
-            //    cmdd.ExecuteNonQuery();
-            //}
+            var script = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("RadioEtherMonitor.Model.edmx.sql")).ReadToEnd();
+            foreach (var cmd in script.Split(new[] { "\r\nGO\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var cmdd = new SqlCeCommand(cmd, Connection);
+                try
+                {
+                    cmdd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ignorable SQL exception: " + ex.Message);
+                }
+            }
         }
 
         protected override void OnExit(ExitEventArgs e)
