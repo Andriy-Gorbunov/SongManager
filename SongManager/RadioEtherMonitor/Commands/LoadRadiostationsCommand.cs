@@ -24,8 +24,8 @@ namespace RadioEtherMonitor.Commands
             {
                 strings.Add(agg.ToString());
                 aggregators.Add((AggregatorType)agg);
-                this.data = data;
             }
+            this.data = data;
         }
 
         public bool CanExecute(object parameter)

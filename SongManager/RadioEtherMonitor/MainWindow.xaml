@@ -5,19 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RadioEtherMonitor"
         mc:Ignorable="d"
-        Title="{Binding Path=Version, StringFormat=Контролер квот радіоефіру.           Версія \{0\}}" Height="350" Width="525">
+        Title="{Binding Path=Version, StringFormat=Контролер квот радіоефіру.           Версія \{0\}}" Height="621.84" Width="1170.245">
     <Window.DataContext>
         <local:MainWindowVM />
     </Window.DataContext>
     <Grid DataContext="{Binding}">
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="517">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="369*"/>
+            <ColumnDefinition Width="148*"/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="517" Grid.ColumnSpan="2">
             <MenuItem Header="За_вантажити список радіостанцій з..." >
-                <MenuItem Header="radio.i.ua" HorizontalAlignment="Left" Command="{Binding DataContext.LoadRadiostationsList, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" CommandParameter="RadioIUa" />
-                <MenuItem Header="radioscope.in.ua" HorizontalAlignment="Left" Command="{Binding LoadRadiostationsList}" CommandParameter="RadioscopeInUa" />
+                <MenuItem Header="radio.i.ua" HorizontalAlignment="Left" Command="{Binding DataContext.LoadRadiostations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" CommandParameter="RadioIUa" />
+                <MenuItem Header="radioscope.in.ua" HorizontalAlignment="Left" Command="{Binding DataContext.LoadRadiostations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" CommandParameter="RadioscopeInUa" />
                 <Separator HorizontalAlignment="Left" />
-                <MenuItem Header="_усіх перелічених агрегаторів" HorizontalAlignment="Left" Command="{Binding LoadRadiostationsList}" CommandParameter=""/>
+                <MenuItem Header="_усіх перелічених агрегаторів" HorizontalAlignment="Left" Command="{Binding DataContext.LoadRadiostations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" CommandParameter=""/>
             </MenuItem>
         </Menu>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="236" ItemsSource="{Binding Radiostations, Mode=OneWay}" DisplayMemberPath="Name" SelectedItem="{Binding Path=DataContext.SelectedRadiostation}" IsSynchronizedWithCurrentItem="True" />
+        <ComboBox x:Name="radiostations" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="192" ItemsSource="{Binding Radiostations, Mode=OneWay}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedRadiostation}" IsSynchronizedWithCurrentItem="True" />
+        <Button x:Name="button" Content="Завантажити виконані пісні" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="192" Command="{Binding DataContext.LoadPerformances, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" CommandParameter=""/>
+        <ComboBox x:Name="dates" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="192" SelectedValuePath="Tag" SelectedValue="{Binding SelectedDay, Mode=TwoWay}" SelectedIndex="0">
+            <ComboBoxItem Content="Вчора" HorizontalAlignment="Left" Width="118" Tag="Yesterday"/>
+            <ComboBoxItem Content="Позавчора" HorizontalAlignment="Left" Width="118" Tag="TwoDaysAgo"/>
+        </ComboBox>
+        <ListView x:Name="performances" HorizontalAlignment="Left" Height="532" Margin="225,49,0,0" VerticalAlignment="Top" Width="927" Grid.ColumnSpan="2" ItemsSource="{Binding Performances}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Виконавець" Width="290" DisplayMemberBinding="{Binding Performer}" />
+                    <GridViewColumn Header="Країна" Width="100" DisplayMemberBinding="{Binding Country}" />
+                    <GridViewColumn Header="Пісня" Width="290" DisplayMemberBinding="{Binding Song}" />
+                    <GridViewColumn Header="Мова" Width="100" DisplayMemberBinding="{Binding Language}" />
+                    <GridViewColumn Header="Тривалість" Width="70" DisplayMemberBinding="{Binding Duration}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

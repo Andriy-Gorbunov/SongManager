@@ -12,9 +12,10 @@ using System.Windows.Input;
 
 namespace RadioEtherMonitor
 {
-    public class MainWindowVM : NotifyPropertyChangedImpl, IRadiostationsData
+    public class MainWindowVM : NotifyPropertyChangedImpl, IRadiostationsData, IPerformancesData
     {
-        public ICommand LoadRadiostationsList { get; private set; }
+        public ICommand LoadRadiostations { get; private set; }
+        public ICommand LoadPerformances { get; private set; }
 
         private ObservableCollection<Radiostation> radiostations = new ObservableCollection<Radiostation>();
 
@@ -38,10 +39,32 @@ namespace RadioEtherMonitor
 
         public string Version { get; private set; }
 
+        public string SelectedDay { get; set; }
+
+        private ObservableCollection<ExtPerformance> performances = new ObservableCollection<ExtPerformance>();
+        public ObservableCollection<ExtPerformance> Performances
+        {
+            get
+            {
+                return performances;
+            }
+
+            set
+            {
+                if (value != performances)
+                {
+                    performances = value;
+                    NotifyPropertyChanged(nameof(Performances));
+                }
+            }
+        }
+
         public MainWindowVM()
         {
-            LoadRadiostationsList = new LoadRadiostationsCommand(this);
+            LoadRadiostations = new LoadRadiostationsCommand(this);
+            LoadPerformances = new LoadPerformancesCommand(this);
             SelectedRadiostation = new Radiostation();
+            SelectedDay = string.Empty;
             Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
     }

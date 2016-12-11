@@ -16,6 +16,6 @@ namespace RadioEtherInternetAPI
 
         List<Radiostation> LoadRadiostations(HashSet<AggregatorType> radiostationTypes);
 
-        List<string> LoadSongs(AggregatorType site, Uri Archive);
+        List<Performance> LoadPerformances(AggregatorType site, Uri Archive, DateTime date);
     }
 }

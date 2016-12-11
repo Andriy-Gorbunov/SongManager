@@ -54,9 +54,25 @@ namespace RadioEtherInternetAPI.Implementation
             return result;
         }
 
-        public List<string> LoadSongs(AggregatorType site, Uri Archive)
+        public List<Performance> LoadPerformances(AggregatorType site, Uri Archive, DateTime date)
         {
-            throw new NotImplementedException();
+            List<Performance> result = new List<Performance>();
+
+            // replace switch later everywhere to dynamic connection
+            switch (site)
+            {
+                case AggregatorType.RadioIUa:
+                    result.AddRange(GetPerformanceArchive(Archive, date));
+                    break;
+                //case AggregatorType.RadioscopeInUa:
+                // not supported yet
+                //  break;
+                default:
+                    // not added to this switch. maybe a throw?
+                    break;
+            }
+
+            return result;
         }
     }
 }

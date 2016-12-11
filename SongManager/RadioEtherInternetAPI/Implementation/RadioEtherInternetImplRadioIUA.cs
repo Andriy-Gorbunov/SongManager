@@ -37,9 +37,31 @@ namespace RadioEtherInternetAPI.Implementation
             return radioStationNodes?.Select(node => new Radiostation()
             {
                 Name = node.InnerText.Trim().Replace("&quot;", "\""),
-                Archive = new Uri("http://radio.i.ua" + node.GetAttributeValue("href", "")),
+                Archive = new Uri("http://radio.i.ua" + node.GetAttributeValue("href", "") + "archive/"),
                 Site = AggregatorType.RadioIUa
             }).ToList() ?? new List<Radiostation>();
+        }
+
+        public List<Performance> GetPerformanceArchive(Uri archive, DateTime day)
+        {
+            List<Performance> result = new List<Performance>();
+            string html = webClient.DownloadString(archive.AbsoluteUri + day.Day.ToString());
+
+            HtmlDocument doc = new HtmlDocument();
+            using (var stream = new StringReader(html))
+            {
+                doc.Load(stream);
+            }
+            var performanceNodes = doc.DocumentNode.SelectNodes("//ul[contains(concat(' ', normalize-space(@class), ' '), ' radio_program ')]//li/a");
+            for (int index = 0; index < performanceNodes.Count / 2; index+=2)
+            {
+                result.Add(new Performance()
+                {
+                    Performer = performanceNodes[index].InnerText.Trim(),
+                    Song = performanceNodes[index+1].InnerText.Trim()
+                });
+            }
+            return result;
         }
     }
 }

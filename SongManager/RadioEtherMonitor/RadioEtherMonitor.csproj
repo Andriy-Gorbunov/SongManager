@@ -94,9 +94,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\LoadPerformancesCommand.cs" />
     <Compile Include="CustomCommands.cs" />
     <Compile Include="Commands\LoadRadiostationsCommand.cs" />
-    <Compile Include="IRadiostationsData.cs" />
+    <Compile Include="Commands\IPerformancesData.cs" />
+    <Compile Include="Commands\IRadiostationsData.cs" />
+    <Compile Include="ExtPerformance.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
