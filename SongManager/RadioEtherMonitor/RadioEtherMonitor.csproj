@@ -94,17 +94,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\LoadPerformancesCommand.cs" />
+    <Compile Include="CustomCommands.cs" />
+    <Compile Include="Commands\LoadRadiostationsCommand.cs" />
+    <Compile Include="Commands\IPerformancesData.cs" />
+    <Compile Include="Commands\IRadiostationsData.cs" />
+    <Compile Include="ExtPerformance.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindowVM.cs" />
     <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NotifyPropertyChangedImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -142,6 +150,12 @@
     <Content Include="SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RadioEtherInternetAPI\RadioEtherInternetAPI.csproj">
+      <Project>{cd9e5c9f-1759-4bc6-a52f-cca7f1aa6516}</Project>
+      <Name>RadioEtherInternetAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
