@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RadioEtherMonitor
+namespace RadioEtherData
 {
     using System;
     using System.Data.Entity;

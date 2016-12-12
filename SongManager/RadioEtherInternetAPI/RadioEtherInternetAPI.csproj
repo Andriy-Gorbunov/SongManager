@@ -71,9 +71,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Country.cs" />
     <Compile Include="Implementation\IWebClientProxy.cs" />
     <Compile Include="Implementation\RadioEtherInternetImpl.cs" />
     <Compile Include="Implementation\RadioEtherInternetImplRadioIUA.cs" />
+    <Compile Include="Implementation\RadioEtherInternetImplWiki.cs" />
     <Compile Include="Implementation\WebClientProxyImpl.cs" />
     <Compile Include="IRadioEtherInternetAPI.cs" />
     <Compile Include="APIFactory.cs" />
@@ -87,12 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RadioEtherModel\RadioEtherModel.csproj">
-      <Project>{4a0d6985-475c-4395-8147-46564c41236a}</Project>
-      <Name>RadioEtherModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

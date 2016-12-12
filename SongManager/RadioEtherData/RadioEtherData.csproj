@@ -81,6 +81,8 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DataAPI.cs" />
+    <Compile Include="ICountryRepository.cs" />
+    <Compile Include="Implementation\CountryRepository.cs" />
     <Compile Include="Language.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

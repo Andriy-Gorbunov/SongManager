@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:RadioEtherMonitor"
         mc:Ignorable="d"
         Title="{Binding Path=Version, StringFormat=Контролер квот радіоефіру.           Версія \{0\}}" Height="621.84" Width="1170.245">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <local:MainWindowVM />
-    </Window.DataContext>
-    <Grid DataContext="{Binding}">
+    </Window.DataContext>-->
+    <Grid DataContext="{Binding MainWindowVM, Source={StaticResource ViewModelLocator}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="369*"/>
             <ColumnDefinition Width="148*"/>

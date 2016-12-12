@@ -17,5 +17,11 @@ namespace RadioEtherInternetAPI
         List<Radiostation> LoadRadiostations(HashSet<AggregatorType> radiostationTypes);
 
         List<Performance> LoadPerformances(AggregatorType site, Uri Archive, DateTime date);
+
+        /// <summary>
+        /// Load list of countries from wiki page
+        /// </summary>
+        /// <returns></returns>
+        List<Country> LoadCountries();
     }
 }

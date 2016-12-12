@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RadioEtherData
 {
-    public static class DataAPI
+    public class DataAPI
     {
         private static string connectionString = $"Data Source = songs.sdf";
 
@@ -22,6 +22,14 @@ namespace RadioEtherData
 
             }
         }
+
+        public static ModelContainer GetDbContext()
+        {
+            var container = new ModelContainer();
+            container.Database.Connection.ConnectionString = connectionString;
+            return container;
+        }
+
         public static void ReCreateDatabaseContent()
         { 
             using (var connection = new SqlCeConnection(connectionString))
@@ -45,7 +53,5 @@ namespace RadioEtherData
                 }
             }
         }
-
-
     }
 }
