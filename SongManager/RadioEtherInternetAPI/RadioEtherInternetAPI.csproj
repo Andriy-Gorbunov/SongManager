@@ -88,6 +88,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RadioEtherModel\RadioEtherModel.csproj">
+      <Project>{4a0d6985-475c-4395-8147-46564c41236a}</Project>
+      <Name>RadioEtherModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
