@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioEtherMonitor", "RadioEtherMonitor\RadioEtherMonitor.csproj", "{A8E7C646-DB0A-4075-A45B-AE207C2EE279}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CD9E5C9F-1759-4BC6-A52F-CCA7F1AA6516} = {CD9E5C9F-1759-4BC6-A52F-CCA7F1AA6516}
+		{02EBEEDE-14C6-4DA9-9D73-7858EC288BA9} = {02EBEEDE-14C6-4DA9-9D73-7858EC288BA9}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioEtherInternetAPI", "RadioEtherInternetAPI\RadioEtherInternetAPI.csproj", "{CD9E5C9F-1759-4BC6-A52F-CCA7F1AA6516}"
@@ -14,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioEtherInternetAPI.unit"
 	ProjectSection(ProjectDependencies) = postProject
 		{CD9E5C9F-1759-4BC6-A52F-CCA7F1AA6516} = {CD9E5C9F-1759-4BC6-A52F-CCA7F1AA6516}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioEtherData", "RadioEtherData\RadioEtherData.csproj", "{02EBEEDE-14C6-4DA9-9D73-7858EC288BA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +36,10 @@ Global
 		{E7DF73ED-8D5E-4CDC-89D2-881810DA3869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7DF73ED-8D5E-4CDC-89D2-881810DA3869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7DF73ED-8D5E-4CDC-89D2-881810DA3869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EBEEDE-14C6-4DA9-9D73-7858EC288BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EBEEDE-14C6-4DA9-9D73-7858EC288BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EBEEDE-14C6-4DA9-9D73-7858EC288BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EBEEDE-14C6-4DA9-9D73-7858EC288BA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

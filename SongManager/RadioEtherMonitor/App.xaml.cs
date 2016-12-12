@@ -18,10 +18,6 @@ namespace RadioEtherMonitor
     /// </summary>
     public partial class App : Application
     {
-        public SqlCeConnection Connection { get; private set; }
-
-        public const string SqlFileName = "songs.sdf";
-
         public new static App Current { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -30,38 +26,11 @@ namespace RadioEtherMonitor
 
             base.OnStartup(e);
 
-
-            var en = new SqlCeEngine($"Data Source = {SqlFileName}");
-            if (!en.Verify())
-            {
-                en.CreateDatabase();
-
-            }
-
-            Connection = new SqlCeConnection($"Data Source = {SqlFileName}");
-            
-            Connection.Open();
-
-            var script = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("RadioEtherMonitor.Model.edmx.sql")).ReadToEnd();
-            foreach (var cmd in script.Split(new[] { "\r\nGO\r\n" }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                var cmdd = new SqlCeCommand(cmd, Connection);
-                try
-                {
-                    cmdd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Ignorable SQL exception: " + ex.Message);
-                }
-            }
+            RadioEtherData.DataAPI.ReCreateDatabaseContent();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            Connection?.Close();
-            Connection = null;
-
             base.OnExit(e);
         }
     }

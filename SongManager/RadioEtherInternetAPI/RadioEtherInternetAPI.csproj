@@ -71,9 +71,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Country.cs" />
     <Compile Include="Implementation\IWebClientProxy.cs" />
     <Compile Include="Implementation\RadioEtherInternetImpl.cs" />
     <Compile Include="Implementation\RadioEtherInternetImplRadioIUA.cs" />
+    <Compile Include="Implementation\RadioEtherInternetImplWiki.cs" />
     <Compile Include="Implementation\WebClientProxyImpl.cs" />
     <Compile Include="IRadioEtherInternetAPI.cs" />
     <Compile Include="APIFactory.cs" />
