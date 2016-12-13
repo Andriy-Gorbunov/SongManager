@@ -5,11 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RadioEtherMonitor"
         mc:Ignorable="d"
-        Title="{Binding Path=Version, StringFormat=Контролер квот радіоефіру.           Версія \{0\}}" Height="621.84" Width="1170.245">
-    <Window.DataContext>
-        <local:MainWindowVM />
-    </Window.DataContext>
-    <Grid DataContext="{Binding}">
+        Title="{Binding Path=Version, StringFormat=Контролер квот радіоефіру.           Версія \{0\}}" Height="621.84" Width="1170.245"
+        DataContext="{Binding MainWindowVM, Source={StaticResource ViewModelLocator}}">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="369*"/>
             <ColumnDefinition Width="148*"/>
