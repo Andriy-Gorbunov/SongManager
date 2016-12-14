@@ -11,10 +11,17 @@ namespace RadioEtherData
 {
     public class DataAPI
     {
-        private static string connectionString = $"Data Source = songs.sdf";
+        private static readonly string connectionString;
+        private const string DB_NAME = "songs.sdf";
 
         static DataAPI()
         {
+            string databaseDirectory = $"{ Directory.GetCurrentDirectory() }\\Data_v1\\";
+            if (!Directory.Exists(databaseDirectory))
+            {
+                Directory.CreateDirectory(databaseDirectory);
+            }
+            connectionString = $"Data Source = {databaseDirectory}{DB_NAME}";
             var en = new SqlCeEngine(connectionString);
             if (!en.Verify())
             {
